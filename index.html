@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Allen and Sons Lawn Care</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Homegrown</title>
   <style>
     * {
       margin: 0;
@@ -22,7 +22,7 @@
     }
 
     header {
-      background-color: #006c43; 
+      background-color: #006c43;
       padding: 20px;
       text-align: center;
       color: #fff;
@@ -51,7 +51,7 @@
       filter: blur(5px);
       z-index: -1;
       opacity: 0;
-      transition: opacity 1s ease-in-out; 
+      transition: opacity 1s ease-in-out;
     }
 
     .background-overlay {
@@ -74,7 +74,7 @@
     }
 
     .logo img {
-      width: 500px; 
+      width: 500px;
       height: auto;
     }
 
@@ -161,7 +161,42 @@
       text-align: center;
     }
 
+    /* Sponsorships Section Styled as Cards */
+    .sponsorships-section {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
 
+    .sponsorship-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .sponsorship-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .sponsorship-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .sponsorship-card img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Pricing Section */
     .pricing-section {
       text-align: center;
       margin-top: 40px;
@@ -224,6 +259,7 @@
       background-color: #004d33;
     }
 
+    /* Services Section */
     .services-section {
       text-align: center;
       margin-top: 40px;
@@ -260,13 +296,84 @@
       color: #002e1c;
       font-weight: bold;
     }
+    
+    /* Base styling for the sponsorship card */
+    .sponsorship-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 350px;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
+    /* Default hover effects removed so we can add per-card colors */
+    .sponsorship-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Remove list styling and replace with hyphens */
+    .sponsorship-card ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .sponsorship-card ul li::before {
+      content: "- ";
+      margin-right: 5px;
+    }
+
+    /* Sponsor button styled like the Book button */
+    .sponsorship-card button.sponsor-button {
+      margin-top: auto; /* Pushes the button to the bottom */
+      padding: 10px 20px;
+      background-color: #006c43;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .sponsorship-card button.sponsor-button:hover {
+      background-color: #004d33;
+    }
+
+    /* Custom hover shadow colors per card */
+    .bronze-sponsor:hover {
+      box-shadow: 0px 10px 20px rgba(205, 127, 50, 0.5);  /* Bronze-like shadow */
+    }
+
+    .silver-sponsor:hover {
+      box-shadow: 0px 10px 20px rgba(192, 192, 192, 0.5);  /* Silver-like shadow */
+    }
+
+    .gold-sponsor:hover {
+      box-shadow: 0px 10px 20px rgba(255, 215, 0, 0.5);  /* Gold-like shadow */
+    }
+    
+    /* Availablity Section */
+    .availability-section {
+      text-align: center;
+      margin: 40px 0;
+    }
+    
+    .availability-section input[type="date"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
-
   <header>
-    Allen and Sons Lawn Care
+    Project Homegrown
   </header>
 
   <div class="hero-section">
@@ -274,7 +381,7 @@
     <div class="background-overlay"></div>
 
     <div class="logo">
-      <img src="ANS.png" alt="Allen and Sons Logo"> 
+      <img src="ANS.png" alt="Allen and Sons Logo" />
       <div class="moto">"Your Lawn, Our Expertise - Sustainably"</div>
       <button class="cta-button" id="openModalButton">Get a Free Estimate</button>
     </div>
@@ -283,51 +390,87 @@
   <div id="estimateModal" class="modal">
     <div class="modal-content" id="modalContent">
       <h2>Request a Free Estimate</h2>
-      <input type="text" id="name" placeholder="Name" required>
-      <input type="tel" id="phone" placeholder="Phone Number" required>
-      <input type="text" id="address" placeholder="Address" required>
+      <input type="text" id="name" placeholder="Name" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+      <input type="text" id="address" placeholder="Address" required />
       <button id="submitEstimateButton">Submit</button>
     </div>
   </div>
 
   <main>
+    <!-- Sponsorships Section -->
+    <div class="sponsorships-section">
+      <h2>Sponsorship Tiers</h2>
+      <u style="color: blue;">See Sponsored Lawns Spreadsheet</u>
+      <div class="sponsorship-cards">
+        <div class="sponsorship-card bronze-sponsor">
+          <h3>Bronze Sponsor</h3>
+          <p class="price">$2,000</p>
+          <ul>
+            <b>Benefits</b>
+            <li>Info on Website</li>
+          </ul>
+          <button class="sponsor-button">Become a Sponsor</button>
+        </div>
+        <div class="sponsorship-card silver-sponsor">
+          <h3>Silver Sponsor</h3>
+          <p class="price">$4,000</p>
+          <ul>
+            <b>Benefits</b>
+            <li>Bronze Benefits</li>
+            <li>Website Banner</li>
+            <li>Discounted Services for Repeated Sponsors</li>
+          </ul>
+          <button class="sponsor-button">Become a Sponsor</button>
+        </div>
+        <div class="sponsorship-card gold-sponsor">
+          <h3>Gold Sponsor</h3>
+          <p class="price">$5,000</p>
+          <ul>
+            <b>Benefits</b>
+            <li>Silver Benefits</li>
+            <li>Priority Scheduling</li>
+            <li>Partnership Included in Social Media Post</li>
+            <li>Increased Discount Advantages</li>
+          </ul>
+          <button class="sponsor-button">Become a Sponsor</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Pricing Section -->
     <div class="pricing-section">
       <h2>Pricing</h2>
       <div class="pricing-cards">
         <div class="pricing-card">
-          <h3>Basic Package</h3>
-          <p class="price">$50</p>
+          <h3>Property Managers</h3>
+          <h4>For Property Magnates</h4>
+          <p class="price">$70/hour</p>
           <ul>
             <b>Includes</b>
-            <li>-Lawn Mowing</li>
+            <li>- Lawn Mowing</li>
+            <li>- Trimming</li>
+            <li>- Yard Cleanup</li>
           </ul>
-          <button>Choose Basic</button>
+          <button>Book</button>
         </div>
+
         <div class="pricing-card">
-          <h3>Standard Package</h3>
-          <p class="price">$120</p>
+          <h3>Commercial Clients</h3>
+          <h4>For Business Owners</h4>
+          <p class="price">$50/hour</p>
           <ul>
             <b>Includes</b>
-            <li>Basic Package +</li>
-            <li>Trimming / Edging</li>
-            <li>Weed Eating</li>
+            <li>- Lawn Mowing</li>
+            <li>- Trimming</li>
+            <li>- Cleanup</li>
           </ul>
-          <button>Choose Standard</button>
-        </div>
-        <div class="pricing-card">
-          <h3>Premium Package</h3>
-          <p class="price">$195</p>
-          <ul>
-            <b>Includes</b>
-            <li>Standard Package +</li>
-            <li>Yard Cleanup</li>
-          </ul>
-          <button>Choose Premium</button>
+          <button>Book</button>
         </div>
       </div>
     </div>
 
-
+    <!-- Services Section -->
     <div class="services-section">
       <h2>Individual Services</h2>
       <div class="services-list">
@@ -354,21 +497,36 @@
       </div>
     </div>
 
+    <!-- Availablity Section -->
+    <div class="availability-section">
+      <h2>Availability</h2>
+      <iframe 
+        src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FChicago&showPrint=0&src=YTdlYTA5ZDc5NWE3MGYwNDIxN2U4Mjk1MDA5MTZhYjkzYmI3OGU5OWFjYmViMWVkNzFjODFmY2U5OTVlNWYzOUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23795548" 
+        style="border: 0; width: 100%; max-width: 800px; height: 600px; margin: 0 auto; display: block;" 
+        frameborder="0" 
+        scrolling="no">
+      </iframe>
+    </div>
+
+    <!-- Contact Section -->
     <div class="contact-section" style="display: block; text-align: center; margin-top: 40px;">
       <h2>Contact Us</h2>
-      <p>Phone Number: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-      <p>Facebook: <a href="https://www.facebook.com/people/Allen-Sons-LC/61559049852088/" target="_blank">Allen and Sons Lawn Care on Facebook</a></p>
+      <img src="PhoneIcon.png" alt="Phone Icon" style="width: 30px; height: 30px;" />
+      <a href="tel:+1234567890">+1 (205) 997-8565</a>
+      <p>or</p>
+      <img src="FBIcon.png" alt="Facebook Icon" style="width: 30px; height: 30px;" />
+      <a href="https://www.facebook.com/people/Allen-Sons-LC/61559049852088/" target="_blank">Project Homegrown on Facebook</a>
     </div>
   </main>
 
   <footer>
-    &copy; 2024 Allen and Sons Lawn Care. All rights reserved.
+    &copy; 2025 Project Homegrown. All rights reserved.
   </footer>
 
   <script>
     const images = [
-      'SlideShow1.png',    
-      'SlideShow2.png', 
+      'SlideShow1.png',
+      'SlideShow2.png',
       'SlideShow3.png',
       'SlideShow4.png',
       'SlideShow5.png'
@@ -383,13 +541,12 @@
 
       setTimeout(() => {
         slideshowElement.style.opacity = 0;
-      }, 4000); 
+      }, 4000);
 
       currentImageIndex = (currentImageIndex + 1) % images.length;
     }
 
     setInterval(changeBackgroundImage, 5000);
-
     changeBackgroundImage();
 
     const modal = document.getElementById('estimateModal');
@@ -425,23 +582,22 @@
           },
           body: JSON.stringify(payload)
         })
-        .then(response => {
-          if (response.ok) {
-            const modalContent = document.getElementById('modalContent');
-            modalContent.innerHTML = '<div class="confirmation-message">Your Request has been Submitted</div>';
-          } else {
-            alert('There was an issue sending your request. Please try again.');
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('There was an error sending your request. Please try again.');
-        });
+          .then(response => {
+            if (response.ok) {
+              const modalContent = document.getElementById('modalContent');
+              modalContent.innerHTML = '<div class="confirmation-message">Your Request has been Submitted</div>';
+            } else {
+              alert('There was an issue sending your request. Please try again.');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error sending your request. Please try again.');
+          });
       } else {
         alert('Please fill out all fields.');
       }
     });
   </script>
-
 </body>
 </html>
