@@ -580,6 +580,13 @@
       const phone = document.getElementById('phone').value;
       const address = document.getElementById('address').value;
 
+      const urlRegex = /^(http|https):\/\/[^ "]+$/;
+
+      if (urlRegex.test(name) || urlRegex.test(phone) || urlRegex.test(address)) {
+        alert('Please enter valid information. Links are not valid submissions.');
+        return;
+      }
+      
       if (name && phone && address) {
         const webhookUrl = 'https://discord.com/api/webhooks/1302811577711591474/XIJd7WPbgVqPmCak8SeU3HtcLutfgDEgSHy0R4XQRKM_ZvCgTRyBPQFLO0cEOuE0mAi5';
 
